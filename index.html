@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bronq English School | Addis Ababa</title>
+<meta name="description" content="English courses from A1 to C2 in Megenagna and Summit, Addis Ababa.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗣️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: { extend: {
+      fontFamily: { display: ['"Bricolage Grotesque"', 'system-ui', 'sans-serif'], sans: ['"DM Sans"', 'system-ui', 'sans-serif'] },
+      colors: { bg:'var(--bg)', surface:'var(--surface)', ink:'var(--ink)', muted:'var(--muted)', line:'var(--line)', brand:'var(--brand)', gold:'var(--gold)' }
+    } }
+  }
+</script>
+<style>
+  /* ===== BRAND COLOURS: change these tokens to re-theme the whole site ===== */
+  :root { --bg:#F5F7FB; --surface:#FFFFFF; --ink:#101B3A; --muted:#55607E; --line:#DDE3F0; --brand:#1B2E6B; --gold:#E8A317; --on-brand:#FFFFFF; }
+  html.dark { --bg:#0B1126; --surface:#131B38; --ink:#EEF1FA; --muted:#A3AECB; --line:#25305A; --brand:#8DA2FF; --gold:#F2B73C; --on-brand:#0B1126; }
+  body { background:var(--bg); color:var(--ink); }
+  :focus-visible { outline:3px solid var(--gold); outline-offset:3px; }
+  section[id] { scroll-margin-top:5rem; }
+  .btn-primary { background:var(--gold); color:#1a1200; }
+  .btn-primary:hover { filter:brightness(1.07); }
+  .stair { transform-origin:bottom; animation:rise .7s cubic-bezier(.2,.8,.2,1) both; }
+  @keyframes rise { from { transform:scaleY(.15); opacity:0; } to { transform:scaleY(1); opacity:1; } }
+  @media (prefers-reduced-motion:reduce) { .stair { animation:none; } html { scroll-behavior:auto !important; } }
+</style>
+</head>
+<body class="font-sans antialiased">
+
+<!-- =================== 1. NAVIGATION =================== -->
+<header class="fixed inset-x-0 top-0 z-50 border-b border-line bg-bg/90 backdrop-blur" style="padding-top:env(safe-area-inset-top,0px)">
+  <nav class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6" aria-label="Main">
+    <!-- LOGO: replace the square with <img src="logo.png"> -->
+    <a href="#home" class="flex items-center gap-2.5">
+      <span class="grid h-9 w-9 place-items-center rounded-lg bg-brand font-display text-lg font-extrabold" style="color:var(--on-brand)">b</span>
+      <span class="font-display text-lg font-bold tracking-tight">Bronq English School</span>
+    </a>
+    <ul class="hidden items-center gap-7 text-sm font-medium text-muted lg:flex">
+      <li><a class="hover:text-ink" href="#about">About</a></li>
+      <li><a class="hover:text-ink" href="#courses">Courses</a></li>
+      <li><a class="hover:text-ink" href="#method">How it works</a></li>
+      <li><a class="hover:text-ink" href="#stories">Students</a></li>
+      <li><a class="hover:text-ink" href="#contact">Contact</a></li>
+    </ul>
+    <div class="flex items-center gap-2">
+      <button id="themeBtn" class="grid h-10 w-10 place-items-center rounded-lg border border-line bg-surface" aria-label="Toggle dark mode">
+        <i data-lucide="moon" class="dark:hidden h-5 w-5"></i><i data-lucide="sun" class="hidden dark:block h-5 w-5"></i>
+      </button>
+      <a href="#contact" class="btn-primary hidden rounded-lg px-4 py-2.5 text-sm font-semibold sm:inline-block">Book a lesson</a>
+      <button id="menuBtn" class="grid h-10 w-10 place-items-center rounded-lg border border-line bg-surface lg:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <i data-lucide="menu" class="h-5 w-5"></i>
+      </button>
+    </div>
+  </nav>
+  <!-- Mobile menu (toggled by JS) -->
+  <div id="mobileMenu" class="hidden border-t border-line bg-bg lg:hidden">
+    <ul class="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-3 text-base font-medium">
+      <li><a class="block rounded-lg px-3 py-2.5 hover:bg-surface" href="#about">About</a></li>
+      <li><a class="block rounded-lg px-3 py-2.5 hover:bg-surface" href="#courses">Courses</a></li>
+      <li><a class="block rounded-lg px-3 py-2.5 hover:bg-surface" href="#method">How it works</a></li>
+      <li><a class="block rounded-lg px-3 py-2.5 hover:bg-surface" href="#stories">Students</a></li>
+      <li><a class="block rounded-lg px-3 py-2.5 hover:bg-surface" href="#contact">Contact</a></li>
+      <li><a class="btn-primary mt-2 block rounded-lg px-3 py-3 text-center font-semibold" href="#contact">Book a lesson</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+<!-- =================== 2. HERO =================== -->
+<section id="home" class="mx-auto grid max-w-6xl items-center gap-12 px-4 pb-20 pt-32 sm:px-6 lg:grid-cols-2 lg:pt-40">
+  <div>
+    <p class="mb-5 inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1.5 text-sm text-muted">
+      <i data-lucide="map-pin" class="h-4 w-4" style="color:var(--gold)"></i> Megenagna and Summit, Addis Ababa
+    </p>
+    <h1 class="font-display text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">Speak English with confidence, one level at a time.</h1>
+    <p class="mt-6 max-w-xl text-lg leading-relaxed text-muted">Bronq English School takes you from your first words (A1) to fluent, professional English (C2) with certified teachers, small classes, and a plan built around your goals.</p>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a href="#contact" class="btn-primary rounded-lg px-6 py-3.5 font-semibold">Book a free assessment</a>
+      <a href="#courses" class="rounded-lg border border-line bg-surface px-6 py-3.5 font-semibold hover:border-brand">See all levels</a>
+    </div>
+  </div>
+  <!-- Hero visual: the A1 to C2 "staircase" -->
+  <div class="rounded-3xl border border-line bg-surface p-6 sm:p-8" aria-label="English levels from A1 to C2">
+    <div class="flex h-64 items-end gap-2 sm:gap-3" id="stairs"></div>
+    <p class="mt-5 text-sm text-muted">Six levels on the Common European Framework. We place you on the right step in your first visit.</p>
+  </div>
+</section>
+
+<!-- =================== 3. ABOUT =================== -->
+<section id="about" class="border-y border-line bg-surface py-20">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <div class="grid gap-10 lg:grid-cols-2">
+      <div>
+        <h2 class="font-display text-3xl font-bold tracking-tight sm:text-4xl">A school built on real conversation</h2>
+        <!-- EDIT: school story -->
+        <p class="mt-5 leading-relaxed text-muted">Bronq English School began with a simple idea: people learn a language by using it. From our first classroom in Addis Ababa, we have focused on speaking, listening, and practical writing rather than memorising rules.</p>
+        <p class="mt-4 leading-relaxed text-muted">Today we teach students at two branches, Megenagna and Summit, preparing them for university, work, travel, and international exams.</p>
+      </div>
+      <div class="rounded-2xl border-l-4 bg-bg p-7" style="border-color:var(--gold)">
+        <h3 class="font-display text-xl font-bold">Our mission</h3>
+        <p class="mt-3 leading-relaxed text-muted">To give every learner in Ethiopia the English skills to study, work, and connect anywhere in the world, in a classroom where it is safe to make mistakes.</p>
+      </div>
+    </div>
+    <!-- WHY CHOOSE US: 4 pillars -->
+    <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4" id="pillars"></div>
+  </div>
+</section>
+
+<!-- =================== 4. COURSES =================== -->
+<section id="courses" class="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+  <div class="max-w-2xl">
+    <h2 class="font-display text-3xl font-bold tracking-tight sm:text-4xl">English courses, A1 to C2</h2>
+    <p class="mt-4 text-muted">Pick your level, or take our free assessment and we will place you.</p>
+  </div>
+  <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" id="courseGrid"></div>
+</section>
+
+<!-- =================== 5. METHODOLOGY =================== -->
+<section id="method" class="border-y border-line bg-surface py-20">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <h2 class="font-display text-3xl font-bold tracking-tight sm:text-4xl">How it works</h2>
+    <ol class="relative mt-12 grid gap-10 md:grid-cols-3 md:gap-6" id="steps"></ol>
+  </div>
+</section>
+
+<!-- =================== 6. TESTIMONIALS =================== -->
+<section id="stories" class="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+  <div class="flex items-end justify-between gap-4">
+    <h2 class="font-display text-3xl font-bold tracking-tight sm:text-4xl">Student stories</h2>
+    <div class="flex gap-2">
+      <button id="prevT" class="grid h-11 w-11 place-items-center rounded-full border border-line bg-surface hover:border-brand" aria-label="Previous story"><i data-lucide="arrow-left" class="h-5 w-5"></i></button>
+      <button id="nextT" class="grid h-11 w-11 place-items-center rounded-full border border-line bg-surface hover:border-brand" aria-label="Next story"><i data-lucide="arrow-right" class="h-5 w-5"></i></button>
+    </div>
+  </div>
+  <div class="mt-10 overflow-hidden"><div id="track" class="flex transition-transform duration-500 ease-out"></div></div>
+  <div id="dots" class="mt-6 flex justify-center gap-2"></div>
+</section>
+
+<!-- =================== 7. CONTACT =================== -->
+<section id="contact" class="border-t border-line bg-surface py-20">
+  <div class="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-2">
+    <div>
+      <h2 class="font-display text-3xl font-bold tracking-tight sm:text-4xl">Book your free assessment</h2>
+      <p class="mt-4 text-muted">Tell us a little about you. We reply within one working day.</p>
+      <form id="regForm" class="mt-8 space-y-4" novalidate>
+        <div>
+          <label for="name" class="mb-1.5 block text-sm font-medium">Full name</label>
+          <input id="name" required class="w-full rounded-lg border border-line bg-bg px-4 py-3" placeholder="Your name">
+        </div>
+        <div>
+          <label for="email" class="mb-1.5 block text-sm font-medium">Email</label>
+          <input id="email" type="email" required class="w-full rounded-lg border border-line bg-bg px-4 py-3" placeholder="you@example.com">
+        </div>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div>
+            <label for="lang" class="mb-1.5 block text-sm font-medium">Language</label>
+            <select id="lang" class="w-full rounded-lg border border-line bg-bg px-4 py-3"><option>English</option></select>
+          </div>
+          <div>
+            <label for="level" class="mb-1.5 block text-sm font-medium">Your level</label>
+            <select id="level" class="w-full rounded-lg border border-line bg-bg px-4 py-3">
+              <option>Not sure, assess me</option><option>A1</option><option>A2</option><option>B1</option><option>B2</option><option>C1</option><option>C2</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label for="branch" class="mb-1.5 block text-sm font-medium">Preferred branch</label>
+          <select id="branch" class="w-full rounded-lg border border-line bg-bg px-4 py-3"><option>Megenagna</option><option>Summit</option></select>
+        </div>
+        <div>
+          <label for="msg" class="mb-1.5 block text-sm font-medium">Message</label>
+          <textarea id="msg" rows="4" class="w-full rounded-lg border border-line bg-bg px-4 py-3" placeholder="Your goals and preferred class times"></textarea>
+        </div>
+        <p id="formMsg" role="status" class="min-h-[1.5rem] text-sm font-medium"></p>
+        <button type="submit" class="btn-primary w-full rounded-lg px-6 py-3.5 font-semibold">Send my request</button>
+      </form>
+    </div>
+
+    <div class="space-y-6">
+      <!-- EDIT: branch details -->
+      <div id="branches" class="space-y-4"></div>
+      <div class="rounded-2xl border border-line bg-bg p-5">
+        <p class="flex items-center gap-2 text-sm"><i data-lucide="mail" class="h-4 w-4" style="color:var(--gold)"></i> info@bronqenglish.com</p>
+        <p class="mt-2 flex items-center gap-2 text-sm"><i data-lucide="clock" class="h-4 w-4" style="color:var(--gold)"></i> Mon to Sat, 8:00 to 20:00</p>
+      </div>
+      <!-- MAP PLACEHOLDER: replace this div with a Google Maps <iframe> -->
+      <div class="grid h-56 place-items-center rounded-2xl border border-dashed border-line bg-bg text-center text-muted">
+        <div><i data-lucide="map" class="mx-auto mb-2 h-8 w-8"></i><p class="text-sm">Embedded map goes here</p><p id="mapLabel" class="text-xs">Megenagna branch</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- =================== 8. FOOTER =================== -->
+<footer class="border-t border-line bg-bg py-12" style="padding-bottom:calc(3rem + env(safe-area-inset-bottom,0px))">
+  <div class="mx-auto flex max-w-6xl flex-col gap-8 px-4 sm:px-6 md:flex-row md:items-center md:justify-between">
+    <div>
+      <p class="font-display text-lg font-bold">Bronq English School</p>
+      <p class="mt-1 text-sm text-muted">Addis Ababa, Ethiopia</p>
+    </div>
+    <ul class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
+      <li><a class="hover:text-ink" href="#about">About</a></li>
+      <li><a class="hover:text-ink" href="#courses">Courses</a></li>
+      <li><a class="hover:text-ink" href="#method">How it works</a></li>
+      <li><a class="hover:text-ink" href="#contact">Contact</a></li>
+    </ul>
+    <!-- EDIT: social links -->
+    <div class="flex gap-2">
+      <a href="#" aria-label="Facebook" class="grid h-10 w-10 place-items-center rounded-lg border border-line bg-surface hover:border-brand"><i data-lucide="facebook" class="h-5 w-5"></i></a>
+      <a href="#" aria-label="Instagram" class="grid h-10 w-10 place-items-center rounded-lg border border-line bg-surface hover:border-brand"><i data-lucide="instagram" class="h-5 w-5"></i></a>
+      <a href="#" aria-label="YouTube" class="grid h-10 w-10 place-items-center rounded-lg border border-line bg-surface hover:border-brand"><i data-lucide="youtube" class="h-5 w-5"></i></a>
+      <a href="#" aria-label="Telegram" class="grid h-10 w-10 place-items-center rounded-lg border border-line bg-surface hover:border-brand"><i data-lucide="send" class="h-5 w-5"></i></a>
+    </div>
+  </div>
+  <p class="mx-auto mt-8 max-w-6xl px-4 text-sm text-muted sm:px-6">&copy; <span id="yr"></span> Bronq English School. All rights reserved.</p>
+</footer>
+
+<script>
+/* ============ CONTENT DATA: edit text here, markup is generated below ============ */
+const PILLARS = [
+  { icon:'mic', title:'Native speakers', text:'Learn natural pronunciation and everyday expressions from fluent teachers.' },
+  { icon:'calendar-clock', title:'Flexible schedules', text:'Morning, evening, and weekend classes at both branches.' },
+  { icon:'badge-check', title:'Certified methods', text:'Lessons follow the CEFR framework and are taught by qualified teachers.' },
+  { icon:'messages-square', title:'Immersive learning', text:'Small groups, role-play, and projects keep you speaking all lesson.' }
+];
+const LEVELS = [
+  { code:'A1', name:'Beginner', text:'Greet people, introduce yourself, and handle simple everyday needs.' },
+  { code:'A2', name:'Elementary', text:'Talk about routines, shopping, and family in short, clear sentences.' },
+  { code:'B1', name:'Intermediate', text:'Handle travel, share opinions, and write simple connected texts.' },
+  { code:'B2', name:'Upper-intermediate', text:'Discuss ideas fluently and understand complex topics and media.' },
+  { code:'C1', name:'Advanced', text:'Use English flexibly for study and work, with accurate, natural style.' },
+  { code:'C2', name:'Proficiency', text:'Express yourself precisely, with the ease of a highly skilled speaker.' }
+];
+const STEPS = [
+  { icon:'clipboard-check', title:'Free assessment', text:'A short written and speaking test shows us your current level and goals.' },
+  { icon:'route', title:'Personalized plan', text:'We match you to a class, schedule, and branch, and set targets for each month.' },
+  { icon:'users', title:'Interactive classes', text:'Practise with your teacher and classmates, and track your progress every term.' }
+];
+const STORIES = [
+  { name:'Selam T.', country:'Ethiopia', level:'B2', stars:5, text:'I passed my university interview in English. My teachers pushed me to speak every day.' },
+  { name:'Daniel M.', country:'Kenya', level:'C1', stars:5, text:'The evening classes fit my work. My emails and presentations are far more confident now.' },
+  { name:'Hana A.', country:'Eritrea', level:'B1', stars:4, text:'I started with almost no English. After two terms I can chat with customers comfortably.' },
+  { name:'Yusuf K.', country:'Somalia', level:'A2', stars:5, text:'Small classes mean the teacher always hears me. I am no longer afraid to speak.' }
+];
+const BRANCHES = [
+  { name:'Megenagna branch', address:'Megenagna, Addis Ababa, Ethiopia', phone:'+251 900 000 001' },
+  { name:'Summit branch', address:'Summit, Addis Ababa, Ethiopia', phone:'+251 900 000 002' }
+];
+
+/* ============ HELPERS ============ */
+const $ = (id) => document.getElementById(id);
+const icons = () => window.lucide && lucide.createIcons();
+
+/* ============ RENDER SECTIONS ============ */
+$('stairs').innerHTML = LEVELS.map((l, i) => `
+  <div class="stair flex flex-1 flex-col justify-end rounded-t-xl p-2 text-center" style="height:${30 + i * 14}%;animation-delay:${i * 90}ms;background:${i === 0 ? 'var(--line)' : 'var(--brand)'};opacity:${0.45 + i * 0.11}">
+    <span class="font-display text-lg font-extrabold sm:text-xl" style="color:${i === 0 ? 'var(--ink)' : 'var(--on-brand)'}">${l.code}</span>
+  </div>`).join('');
+
+$('pillars').innerHTML = PILLARS.map(p => `
+  <div class="rounded-2xl border border-line bg-bg p-6">
+    <span class="mb-4 grid h-11 w-11 place-items-center rounded-lg" style="background:var(--gold);color:#1a1200"><i data-lucide="${p.icon}" class="h-5 w-5"></i></span>
+    <h3 class="font-display text-lg font-bold">${p.title}</h3>
+    <p class="mt-2 text-sm leading-relaxed text-muted">${p.text}</p>
+  </div>`).join('');
+
+$('courseGrid').innerHTML = LEVELS.map(l => `
+  <article class="flex flex-col rounded-2xl border border-line bg-surface p-6">
+    <div class="flex items-baseline justify-between">
+      <span class="font-display text-4xl font-extrabold" style="color:var(--brand)">${l.code}</span>
+      <span class="text-sm font-medium text-muted">${l.name}</span>
+    </div>
+    <p class="mt-4 flex-1 leading-relaxed text-muted">${l.text}</p>
+    <a href="#contact" data-level="${l.code}" class="pick mt-6 inline-flex items-center gap-1.5 text-sm font-semibold" style="color:var(--brand)">Enrol in ${l.code} <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+  </article>`).join('');
+
+$('steps').innerHTML = STEPS.map((s, i) => `
+  <li class="relative">
+    <div class="flex items-center gap-4">
+      <span class="grid h-14 w-14 shrink-0 place-items-center rounded-full font-display text-xl font-extrabold" style="background:var(--brand);color:var(--on-brand)">${i + 1}</span>
+      ${i < STEPS.length - 1 ? '<span class="hidden h-px flex-1 md:block" style="background:var(--line)"></span>' : ''}
+    </div>
+    <h3 class="mt-5 flex items-center gap-2 font-display text-xl font-bold"><i data-lucide="${s.icon}" class="h-5 w-5" style="color:var(--gold)"></i>${s.title}</h3>
+    <p class="mt-2 max-w-xs leading-relaxed text-muted">${s.text}</p>
+  </li>`).join('');
+
+$('branches').innerHTML = BRANCHES.map((b, i) => `
+  <button type="button" data-map="${b.name}" class="branch w-full rounded-2xl border border-line bg-bg p-5 text-left hover:border-brand">
+    <h3 class="font-display text-lg font-bold">${b.name}</h3>
+    <p class="mt-2 flex items-center gap-2 text-sm text-muted"><i data-lucide="map-pin" class="h-4 w-4" style="color:var(--gold)"></i>${b.address}</p>
+    <p class="mt-1 flex items-center gap-2 text-sm text-muted"><i data-lucide="phone" class="h-4 w-4" style="color:var(--gold)"></i>${b.phone}</p>
+  </button>`).join('');
+
+/* Testimonials: initials stand in for photos. Swap the span for <img src="photo.jpg"> */
+$('track').innerHTML = STORIES.map(s => `
+  <figure class="w-full shrink-0 px-1 md:w-1/2 md:px-2">
+    <div class="h-full rounded-2xl border border-line bg-surface p-7">
+      <div class="flex gap-0.5" aria-label="${s.stars} out of 5 stars">
+        ${[1,2,3,4,5].map(n => `<i data-lucide="star" class="h-4 w-4" style="color:var(--gold);${n <= s.stars ? 'fill:var(--gold)' : 'opacity:.3'}"></i>`).join('')}
+      </div>
+      <blockquote class="mt-4 text-lg leading-relaxed">${s.text}</blockquote>
+      <figcaption class="mt-6 flex items-center gap-3">
+        <span class="grid h-12 w-12 place-items-center rounded-full font-display font-bold" style="background:var(--brand);color:var(--on-brand)">${s.name[0]}</span>
+        <span><span class="block font-semibold">${s.name}</span><span class="text-sm text-muted">${s.country}, level ${s.level}</span></span>
+      </figcaption>
+    </div>
+  </figure>`).join('');
+
+/* ============ CAROUSEL ============ */
+let slide = 0;
+const perView = () => (window.innerWidth >= 768 ? 2 : 1);
+const maxSlide = () => STORIES.length - perView();
+function goTo(n) {
+  slide = Math.max(0, Math.min(n, maxSlide()));
+  $('track').style.transform = `translateX(-${slide * (100 / perView())}%)`;
+  $('dots').innerHTML = Array.from({ length: maxSlide() + 1 }, (_, i) =>
+    `<button class="h-2.5 rounded-full transition-all ${i === slide ? 'w-6' : 'w-2.5'}" style="background:${i === slide ? 'var(--brand)' : 'var(--line)'}" aria-label="Go to story ${i + 1}" data-i="${i}"></button>`).join('');
+}
+$('prevT').onclick = () => goTo(slide <= 0 ? maxSlide() : slide - 1);
+$('nextT').onclick = () => goTo(slide >= maxSlide() ? 0 : slide + 1);
+$('dots').onclick = (e) => { if (e.target.dataset.i) goTo(+e.target.dataset.i); };
+window.addEventListener('resize', () => goTo(slide));
+goTo(0);
+
+/* ============ MOBILE MENU ============ */
+const menu = $('mobileMenu'), menuBtn = $('menuBtn');
+function setMenu(open) {
+  menu.classList.toggle('hidden', !open);
+  menuBtn.setAttribute('aria-expanded', open);
+}
+menuBtn.onclick = () => setMenu(menu.classList.contains('hidden'));
+menu.addEventListener('click', (e) => { if (e.target.closest('a')) setMenu(false); });
+
+/* ============ DARK / LIGHT TOGGLE (remembers choice) ============ */
+function applyTheme(dark) { document.documentElement.classList.toggle('dark', dark); }
+let saved = null;
+try { saved = localStorage.getItem('bronq-theme'); } catch (e) {}
+applyTheme(saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches);
+$('themeBtn').onclick = () => {
+  const dark = !document.documentElement.classList.contains('dark');
+  applyTheme(dark);
+  try { localStorage.setItem('bronq-theme', dark ? 'dark' : 'light'); } catch (e) {}
+};
+
+/* ============ COURSE CARD -> FORM LEVEL, BRANCH -> MAP LABEL ============ */
+document.querySelectorAll('.pick').forEach(a => a.addEventListener('click', () => { $('level').value = a.dataset.level; }));
+document.querySelectorAll('.branch').forEach(b => b.addEventListener('click', () => {
+  $('mapLabel').textContent = b.dataset.map;
+  $('branch').value = b.dataset.map.replace(' branch', '');
+}));
+
+/* ============ FORM (demo only: connect to Formspree, EmailJS, or your backend) ============ */
+$('regForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const msg = $('formMsg');
+  const ok = $('name').value.trim() && /^\S+@\S+\.\S+$/.test($('email').value);
+  msg.style.color = ok ? '#1f9d55' : '#d64545';
+  if (!ok) { msg.textContent = 'Enter your name and a valid email address.'; return; }
+  /* TODO: send data here, e.g. fetch('https://formspree.io/f/YOUR_ID', { method:'POST', body:new FormData(e.target) }) */
+  msg.textContent = 'Thank you, ' + $('name').value.trim().split(' ')[0] + '. We will contact you within one working day.';
+  e.target.reset();
+});
+
+$('yr').textContent = new Date().getFullYear();
+icons();
+</script>
+</body>
+</html>
